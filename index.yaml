@@ -1,0 +1,25 @@
+apiVersion: v1
+entries:
+  service-A:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-09-21T06:51:49.669053-04:00"
+    description: A Helm chart for Kubernetes
+    digest: be6ede2864f3b3ba93cd6ee77044929cc8d5850159a47e7508cf62360786a08f
+    name: service-A
+    type: application
+    urls:
+    - https://devopsrajpurohit.github.io/helm/service-A-0.1.0.tgz
+    version: 0.1.0
+  service-B:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-09-21T06:51:49.669579-04:00"
+    description: A Helm chart for Kubernetes
+    digest: 07f7601944139c7ae7b5f534636ccf51eed3a59a4504908d140ce581d58aa86d
+    name: service-B
+    type: application
+    urls:
+    - https://devopsrajpurohit.github.io/helm/service-B-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-09-21T06:51:49.668115-04:00"
