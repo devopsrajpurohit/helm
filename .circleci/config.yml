@@ -28,9 +28,6 @@ workflows:
     jobs:
       - build:
           context: helm
-          charts-dir: service-A
-          add-extra-repositories:
-            - run: "helm repo add myrepo \thttps://devopsrajpurohit.github.io/helm/"
          
 
 
