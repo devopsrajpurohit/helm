@@ -8,5 +8,5 @@ workflows:
           context: helm
           charts-dir: service-A
           add-extra-repositories:
-            - run: "helm repo add extra \thttps://devopsrajpurohit.github.io/helm/"
+            - run: "helm repo add myrepo \thttps://devopsrajpurohit.github.io/helm/"
          
