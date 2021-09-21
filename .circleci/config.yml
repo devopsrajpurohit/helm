@@ -1,6 +1,28 @@
 version: 2.1
-orbs:
-  helm: banzaicloud/helm@0.0.8
+
+executors:
+  helm: 
+    docker:
+      - image: alpine/helm
+commands:
+   repo_add:
+     description: "Adding helm repo"
+     steps: 
+       - run: |       
+           helm repo add myrepo \thttps://devopsrajpurohit.github.io/helm/
+   package:
+     description: "getting chart name from tag"
+     steps: 
+       - run: |       
+           helm package  $chart_path   
+jobs:
+  build:
+    executor: helm
+    steps:
+     - checkout 
+     - repo_add
+     - package
+
 workflows:
   helm-chart-release:
     jobs:
@@ -10,3 +32,6 @@ workflows:
           add-extra-repositories:
             - run: "helm repo add myrepo \thttps://devopsrajpurohit.github.io/helm/"
          
+
+
+    
