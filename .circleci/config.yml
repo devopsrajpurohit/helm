@@ -1,34 +1,13 @@
 version: 2.1
-
-executors:
-  helm: 
-    docker:
-      - image: alpine/helm
-commands:
-   repo_add:
-     description: "Adding helm repo"
-     steps: 
-       - run: |       
-           helm repo add myrepo https://devopsrajpurohit.github.io/helm/
-   package:
-     description: "getting chart name from tag"
-     steps: 
-       - run: |       
-           helm package  . --version $CIRCLE_BUILD_NUM 
-jobs:
-  build:
-    executor: helm
-    steps:
-     - checkout 
-     - repo_add
-     - package
-
+setup: true
+orbs:
+  path-filtering: circleci/path-filtering@0.0.2
 workflows:
-  helm-chart-release:
+  setup:
     jobs:
-      - build:
-          context: helm
-         
-
-
-    
+      - path-filtering/filter:
+          base-revision: master
+          mapping: |
+            service-A/.* service-A true
+            service-B/.* service-B true
+          config-path: .circleci/workflows.yml
