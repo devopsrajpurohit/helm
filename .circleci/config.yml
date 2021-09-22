@@ -10,4 +10,4 @@ workflows:
           mapping: |
             service-A/.* service-A true
             service-B/.* service-B true
-          config-path: .circleci/workflows.yml
+          config-path: .circleci/pipe.yml
