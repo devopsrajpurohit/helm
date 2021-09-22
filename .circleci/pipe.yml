@@ -21,20 +21,20 @@ commands:
      description: "getting chart name from tag"
      steps: 
        - run: |    
-           cd  << parameters.dirPath >> 
-           helm package  .  --version $CIRCLE_BUILD_NUM 
+           helm package . 
 jobs:
   build:
     executor: helm
     parameters:
-      dirPath:
+      dirpath:
         description: base path for service 
         type: string
-        default: "service-A"
-     
+        default: "service-A"    
     steps:
      - checkout 
      - repo_add
+     - run: |
+          cd  << parameters.dirPath >> 
      - package
 
 workflows:
