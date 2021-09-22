@@ -21,15 +21,11 @@ commands:
      description: "getting chart name from tag"
      steps: 
        - run: |    
-           helm package . << parameters.dirPath >>
+           helm package .
 jobs:
   build:
     executor: helm
-    parameters:
-      dirPath:
-        description: base path for service 
-        type: string
-        default: "service-A"    
+    parameters:  
     steps:
      - checkout 
      - repo_add
@@ -44,7 +40,7 @@ workflows:
     jobs:
       - build:
          name:  'pushing chart of service_A'
-         dirPath: "service-A"
+         working_directory: service-A
 
   service_B:
     when:
@@ -53,6 +49,7 @@ workflows:
     jobs:
       - build:
           name:  'pushing chart of service_A'
-          dirPath: "service-B"
+          working_directory: service-B
+          
 
   
