@@ -39,7 +39,7 @@ workflows:
       - build
           filters:
             branches:
-              only: master
+              only: circleci-project-setup
   service_B:
     when:
       or:
@@ -48,4 +48,4 @@ workflows:
       - build
           filters:
             branches:
-              only: master
+              only: circleci-project-setup
