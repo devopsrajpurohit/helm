@@ -21,12 +21,12 @@ commands:
      description: "getting chart name from tag"
      steps: 
        - run: |    
-           helm package . 
+           helm package . << parameters.dirPath >>
 jobs:
   build:
     executor: helm
     parameters:
-      dirpath:
+      dirPath:
         description: base path for service 
         type: string
         default: "service-A"    
