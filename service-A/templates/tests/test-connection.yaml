@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "service-A.fullname" . }}-test-connectfsfsfsfdfsdfsfsfsfsfsfsiofsfsfsn"
+  name: "{{ include "service-A.fullname" . }}-test-connectfsfsfsfdfssfsfsfsdfsfdfsfsfsfsfsfsiofsfsfsn"
   labels:
     {{- include "service-A.labels" . | nindent 4 }}
   annotations:
