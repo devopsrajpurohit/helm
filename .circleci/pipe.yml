@@ -21,8 +21,8 @@ commands:
      description: "getting chart name from tag"
      steps: 
        - run: | 
-           echo $path      
-           helm package  $path --version $CIRCLE_BUILD_NUM 
+           echo $dirPath      
+           helm package  $dirPath --version $CIRCLE_BUILD_NUM 
 jobs:
   build:
     executor: helm
