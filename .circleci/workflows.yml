@@ -37,15 +37,9 @@ workflows:
         - << pipeline.parameters.service_A >>
     jobs:
       - build
-          filters:
-            branches:
-              only: circleci-project-setup
   service_B:
     when:
       or:
         - << pipeline.parameters.service_B >>
     jobs:
       - build
-          filters:
-            branches:
-              only: circleci-project-setup
