@@ -30,7 +30,7 @@ jobs:
       dirPath:
         description: base path for service 
         type: string
-        default: ""
+        default: "service-A"
      
     steps:
      - checkout 
