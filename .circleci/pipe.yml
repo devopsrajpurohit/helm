@@ -46,7 +46,7 @@ workflows:
     jobs:
       - build:
          name:  'pushing chart of service_A'
-         path: service-A
+         path: "service-A"
 
   service_B:
     when:
@@ -55,6 +55,6 @@ workflows:
     jobs:
       - build:
           name:  'pushing chart of service_A'
-          path: service-B
+          path: "service-B"
 
   
