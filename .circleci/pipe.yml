@@ -27,7 +27,7 @@ jobs:
   build:
     executor: helm
     parameters:
-      path:
+      dirPath:
         description: base path for service 
         type: string
         default: ""
@@ -46,7 +46,7 @@ workflows:
     jobs:
       - build:
          name:  'pushing chart of service_A'
-         path: "service-A"
+         dirPath: "service-A"
 
   service_B:
     when:
@@ -55,6 +55,6 @@ workflows:
     jobs:
       - build:
           name:  'pushing chart of service_A'
-          path: "service-B"
+          dirPath: "service-B"
 
   
