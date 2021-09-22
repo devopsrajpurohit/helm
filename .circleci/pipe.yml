@@ -20,27 +20,41 @@ commands:
    package:
      description: "getting chart name from tag"
      steps: 
-       - run: |       
-           helm package  . --version $CIRCLE_BUILD_NUM 
+       - run: | 
+           cd $path      
+           helm package  $path --version $CIRCLE_BUILD_NUM 
 jobs:
   build:
     executor: helm
+    parameters:
+      path:
+        description: base path for service 
+        type: string
+        default: ""
+     
     steps:
      - checkout 
      - repo_add
      - package
 
 workflows:
+  version: 2
   service_A:
     when:
       or:
         - << pipeline.parameters.service-A >>
     jobs:
-      - build
+      - build:
+         name:  'pushing chart of service_A'
+         path: service_A
+
   service_B:
     when:
       or:
         - << pipeline.parameters.service-B >>
     jobs:
-      - build
+      - build:
+          name:  'pushing chart of service_A'
+          path: service_B
+
   
