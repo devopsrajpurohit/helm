@@ -1,5 +1,5 @@
 {{/*
-Expand the name of the chart.
+Expand the name of the chart.fsdfsfs
 */}}
 {{- define "service-A.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}

@@ -4,10 +4,10 @@ executors:
     docker:
       - image: alpine/helm
 parameters:
-  service_A:
+  service-A:
     type: boolean
     default: false
-  service_B:
+  service-B:
     type: boolean
     default: false
 
@@ -34,13 +34,13 @@ workflows:
   service_A:
     when:
       or:
-        - << pipeline.parameters.service_A >>
+        - << pipeline.parameters.service-A >>
     jobs:
       - build
   service_B:
     when:
       or:
-        - << pipeline.parameters.service_B >>
+        - << pipeline.parameters.service-B >>
     jobs:
       - build
   
