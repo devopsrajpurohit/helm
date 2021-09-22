@@ -33,8 +33,6 @@ jobs:
     steps:
      - checkout 
      - repo_add
-     - run: |
-          cd  << parameters.dirPath >> 
      - package
 
 workflows:
