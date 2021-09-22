@@ -20,8 +20,9 @@ commands:
    package:
      description: "getting chart name from tag"
      steps: 
-       - run: |     
-           helm package  << parameters.dirPath >> --version $CIRCLE_BUILD_NUM 
+       - run: |    
+           cd  << parameters.dirPath >> 
+           helm package  .  --version $CIRCLE_BUILD_NUM 
 jobs:
   build:
     executor: helm
