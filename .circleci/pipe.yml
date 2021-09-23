@@ -13,7 +13,6 @@ commands:
      description: "Adding helm repo"
      steps: 
        - run: |     
-       
            helm plugin install https://github.com/hayorov/helm-gcs.git
            helm plugin update gcs
           
