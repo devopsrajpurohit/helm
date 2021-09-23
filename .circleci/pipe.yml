@@ -16,8 +16,7 @@ commands:
        
            helm plugin install https://github.com/hayorov/helm-gcs.git
            helm plugin update gcs
-           helm gcs init gs://bucket/path
-           helm repo add myrepo gs://bucket/path
+          
    package:
      description: "getting chart name from tag"
      steps: 
@@ -28,7 +27,8 @@ commands:
 jobs:
   build:
     executor: helm
-    environment: <<pipeline.parameters.subpath>>
+  environment: 
+    workDir: <<pipeline.parameters.subpath>>
     steps:
      - checkout 
      - repo_add
