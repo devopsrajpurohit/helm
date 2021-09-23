@@ -4,34 +4,33 @@ executors:
     docker:
       - image: alpine/helm
 parameters:
-  service-A:
-    type: boolean
-    default: false
-  service-B:
-    type: boolean
-    default: false
+  subPath:
+    type: string
+    default: ""
+  
 
 commands:
    repo_add:
      description: "Adding helm repo"
      steps: 
-       - run: |       
-           helm repo add myrepo https://devopsrajpurohit.github.io/helm/
+       - run: |     
+       
+           helm plugin install https://github.com/hayorov/helm-gcs.git
+           helm plugin update gcs
+           helm gcs init gs://bucket/path
+           helm repo add myrepo gs://bucket/path
    package:
      description: "getting chart name from tag"
      steps: 
        - run: |    
+           helm dependency update
            helm package $workDir
+           helm push 
 jobs:
   build:
     executor: helm
-    parameters: 
-      subPath:  
-        description: path 
-        type: string 
-        default: ""
     environment:  
-      workDir: << parameters.subPath >>
+      workDir: << pipeline.parameters.subPath >>
     steps:
      - checkout 
      - repo_add
@@ -41,22 +40,12 @@ workflows:
   version: 2
   service_A:
     when:
-      or:
-        - << pipeline.parameters.service-A >>
+      condition:
+        equal: [ "service-A", "service-B",   << pipeline.paramaters.job_env >> ]
     jobs:
       - build:
           name:  'pushing chart of service_A'
-          subPath: service-A
 
-  service_B:
-    when:
-      or:
-        - << pipeline.parameters.service-B >>
-    jobs:
-      - build:
-          name:  'pushing chart of service_A'
-          subPath: service-B
-          
-          
+  
 
   
