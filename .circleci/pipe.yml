@@ -38,13 +38,15 @@ workflows:
   version: 2
   service_A:
     when:   
-     - equal: [ "service-A", << pipeline.parameters.subpath >>  ]
+      condition:
+       - equal: [ "service-A", << pipeline.parameters.subpath >>  ]
     jobs:
       - build:
           name:  'pushing chart of service_A'
   service_B:
     when:
-     - equal: [ "service-B", << pipeline.parameters.subpath >>  ]
+      condition:
+       - equal: [ "service-B", << pipeline.parameters.subpath >>  ]
     jobs:
       - build:
           name:  'pushing chart of service_B'        
