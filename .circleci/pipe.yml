@@ -4,7 +4,7 @@ executors:
     docker:
       - image: alpine/helm
 parameters:
-  subPath:
+  subpath:
     type: string
     default: ""
   
@@ -30,7 +30,7 @@ jobs:
   build:
     executor: helm
     environment:  
-      workDir: << pipeline.parameters.subPath >>
+      workDir: << pipeline.parameters.subpath >>
     steps:
      - checkout 
      - repo_add
