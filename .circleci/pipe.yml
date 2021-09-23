@@ -23,7 +23,7 @@ commands:
        - run: |    
            helm dependency update
            ls -la 
-           helm package << pipeline.parameters.subpath >> 
+           helm package . 
       
 jobs:
   build:
