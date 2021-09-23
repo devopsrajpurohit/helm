@@ -42,12 +42,12 @@ jobs:
 workflows:
   version: 2
   service_A:
-    when: [  << pipeline.paramaters.service-A >> ]
+    when:   << pipeline.paramaters.service-A >> 
     jobs:
       - build:
           name:  'pushing chart of service_A'
   service_B:
-    when: [<< pipeline.paramaters.service-B >> ]
+    when: << pipeline.paramaters.service-B >> 
     jobs:
       - build:
           name:  'pushing chart of service_B'        
