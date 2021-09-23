@@ -1,13 +1,30 @@
 version: 2.1
+
+# this allows you to use CircleCI's dynamic configuration feature
 setup: true
+
+# the path-filtering orb is required to continue a pipeline based on
+# the path of an updated fileset
 orbs:
   path-filtering: circleci/path-filtering@0.0.2
-workflows:   
-  setup:
+
+workflows:
+  # the always-run workflow is always triggered, regardless of the pipeline parameters.
+  always-run:
     jobs:
+      # the path-filtering/filter job determines which pipeline
+      # parameters to update.
       - path-filtering/filter:
-          base-revision: circleci-project-setup
+          name: check-updated-files
+          # 3-column, whitespace-delimited mapping. One mapping per
+          # line:
+          # <regex path-to-test> <parameter-to-set> <value-of-pipeline-parameter>
           mapping: |
             service-A/.* service-A true
             service-B/.* service-B true
-          config-path: .circleci/pipe.yml
+          base-revision: master
+          # this is the path of the configuration we should trigger once
+          # path filtering and pipeline parameter value updates are
+          # complete. In this case, we are using the parent dynamic
+          # configuration itself.
+          config-path: .circleci/pipe.yml 
