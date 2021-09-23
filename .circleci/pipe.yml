@@ -7,6 +7,9 @@ parameters:
   service-A:
     type: boolean
     default: false
+  service-B:
+    type: boolean
+    default: false  
   
 
 commands:
@@ -48,7 +51,7 @@ workflows:
   service_B:
     when:
       condition:
-        equal: [ true,   << pipeline.paramaters.service-A >> ]
+        equal: [ true,   << pipeline.paramaters.service-B >> ]
     jobs:
       - build:
           name:  'pushing chart of service_B'        
