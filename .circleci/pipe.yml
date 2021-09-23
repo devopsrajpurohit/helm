@@ -21,8 +21,8 @@ commands:
      steps: 
        - run: |    
            helm dependency update
-           helm package 
-           helm push 
+           helm package .
+      
 jobs:
   build:
     executor: helm 
