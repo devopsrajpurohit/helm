@@ -23,12 +23,11 @@ commands:
        - run: |    
            helm dependency update
            ls -la 
-           helm package . 
+           helm package <<pipeline.parameters.subpath>>
       
 jobs:
   build:
     executor: helm 
-    working_directory: <<pipeline.parameters.subpath>>
     steps:
      - checkout 
      - repo_add
