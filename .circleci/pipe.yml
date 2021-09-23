@@ -3,7 +3,7 @@ executors:
   helm: 
     docker:
       - image: alpine/helm
-parameters:
+paramaters:
   service-A:
     type: boolean
     default: false
