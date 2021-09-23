@@ -6,7 +6,7 @@ Expand the sdfsfsfsfdnamdsfsfe of the chart.
 {{- end }}
 
 {{/*service-Aservice-Aservice-Aservice-Aservice-A
-dsffsdfWe truncate at 63 chasfsfsrs ssbfsfsfsfssfsfsfsfsfsdfsdfsdfsdfsdfsfsffsdfsffsdfsdfsdfsddssefsdfsfsfddfsfssfsfsdcause some Kubernetes name fields are limited to this (by the DNS naming spec).
+dsffsdfWe truncate fsfsfssfsat 63 chasfsfsrs ssbfsfsfsfssfsfsfsfsfsdfsdfsdfsdfsdfsfsffsdfsffsdfsdfsdfsddssefsdfsfsfddfsfssfsfsdcause some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains cfsdfsfsfhasfsfsfsssfsdrt nfsdfsfsfsfsffsdfjfsfsdfssdkfgjsfhsjfgsfsfsfssshjfhjame it will be used as a full name.
 */}}
 {{- define "service-B.fullname" -}}
