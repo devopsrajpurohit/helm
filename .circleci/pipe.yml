@@ -4,12 +4,10 @@ executors:
     docker:
       - image: alpine/helm
 parameters:
-  service-A:
-    type: boolean
-    default: false
-  service-B:
-    type: boolean
-    default: false  
+  subpath:
+    type: string
+    default: ""
+
   
 
 commands:
@@ -40,12 +38,12 @@ jobs:
 workflows:
   version: 2
   service_A:
-    when:   << pipeline.parameters.service-A >> 
+    when:   << pipeline.parameters.subpath >> 
     jobs:
       - build:
           name:  'pushing chart of service_A'
   service_B:
-    when: << pipeline.parameters.service-B >> 
+    when: << pipeline.parameters.subpath >> 
     jobs:
       - build:
           name:  'pushing chart of service_B'        
