@@ -21,7 +21,7 @@ commands:
      steps: 
        - run: |    
            helm dependency update
-           helm package $workDir
+           helm package 
            helm push 
 jobs:
   build:
