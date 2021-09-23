@@ -8,7 +8,7 @@ Expand the sdfsfsfsfdnamdsfsfe of the chart.
 {{/*service-Aservice-Aservice-Aservice-Aservice-A
 Create a default fully qualifiefsfsfsdfsdd apfsfsfksfhjksdfhjdskdfhsfhskdjfhdskhfjp name.
 We truncate at 63 chars bfsfsfsdfsfsffsdfsfdssefsdfsfsfdsfsfsdcause some Kubernetes name fields are limited to this (by the DNS naming spec).
-If release name contains chart nfsdfsdfjsdkfgjsfhsjfgshjfhjame it will be used as a full name.
+If release name contains chart nfsdfsdfjsdkfgjsfhsjfgsfsfsfssshjfhjame it will be used as a full name.
 */}}
 {{- define "service-B.fullname" -}}
 {{- if .Values.fullnameOverride }}
