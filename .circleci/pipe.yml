@@ -3,7 +3,7 @@ executors:
   helm: 
     docker:
       - image: alpine/helm
-paramaters:
+parameters:
   service-A:
     type: boolean
     default: false
@@ -40,16 +40,14 @@ jobs:
 workflows:
   version: 2
   service_A:
-    when:   << pipeline.paramaters.service-A >> 
+    when:   << pipeline.parameters.service-A >> 
     jobs:
       - build:
           name:  'pushing chart of service_A'
   service_B:
-    when: << pipeline.paramaters.service-B >> 
+    when: << pipeline.parameters.service-B >> 
     jobs:
       - build:
           name:  'pushing chart of service_B'        
-
-  
 
   
