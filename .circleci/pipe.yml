@@ -21,7 +21,7 @@ commands:
      steps: 
        - run: |    
            helm dependency update
-           helm package .
+           helm package $CIRCLE_WORKING_DIRECTORY
       
 jobs:
   build:
