@@ -5,7 +5,7 @@ executors:
       - image: alpine/helm
 parameters:
   subpath:
-    type: boolen
+    type: boolean
     default: false
   
 
