@@ -7,7 +7,7 @@ parameters:
   subpath:
     type: string
     default: ""
-    
+
 commands:
    repo_add:
      description: "Adding helm repo"
@@ -44,7 +44,7 @@ workflows:
           name:  'pushing chart of service_A'
   service_B:
     when:
-     - equal: [ "service-A", << pipeline.parameters.subpath >>  ]
+     - equal: [ "service-B", << pipeline.parameters.subpath >>  ]
     jobs:
       - build:
           name:  'pushing chart of service_B'        
