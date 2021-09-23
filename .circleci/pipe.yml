@@ -5,8 +5,8 @@ executors:
       - image: alpine/helm
 parameters:
   subpath:
-    type: string
-    default: ""
+    type: boolen
+    default: false
   
 
 commands:
@@ -41,14 +41,14 @@ workflows:
   service_A:
     when:
       condition:
-        equal: [ "service-A",   << pipeline.paramaters.subpath >> ]
+        equal: [ true,   << pipeline.paramaters.subpath >> ]
     jobs:
       - build:
           name:  'pushing chart of service_A'
   service_B:
     when:
       condition:
-        equal: [ "service-B",   << pipeline.paramaters.subpath >> ]
+        equal: [ true,   << pipeline.paramaters.subpath >> ]
     jobs:
       - build:
           name:  'pushing chart of service_B'        
