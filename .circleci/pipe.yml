@@ -7,9 +7,7 @@ parameters:
   subpath:
     type: string
     default: ""
-
-  
-
+    
 commands:
    repo_add:
      description: "Adding helm repo"
@@ -30,6 +28,7 @@ commands:
 jobs:
   build:
     executor: helm
+    environment: <<pipeline.parameters.subpath>>
     steps:
      - checkout 
      - repo_add
@@ -38,12 +37,14 @@ jobs:
 workflows:
   version: 2
   service_A:
-    when:   << pipeline.parameters.subpath >> 
+    when:   
+     - equal: [ "service-A", << pipeline.parameters.subpath >>  ]
     jobs:
       - build:
           name:  'pushing chart of service_A'
   service_B:
-    when: << pipeline.parameters.subpath >> 
+    when:
+     - equal: [ "service-A", << pipeline.parameters.subpath >>  ]
     jobs:
       - build:
           name:  'pushing chart of service_B'        
