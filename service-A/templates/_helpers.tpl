@@ -6,8 +6,8 @@ Expand the name of the chart.fsdfsfs
 {{- end }}
 
 {{/*
-Create a default ffdsfsfsfsdfsfsfsfsfsfsully qualified app name.
-We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+Create a default ffdsfsffsfsfsfsfsfsdfsfsfsfsfsfsully qualified app name.
+We truncate at 63 chars because sfsjfskdfksfjksdfhjksdfhjksome Kubernetes name fields are limited to this (by the DNS naming spec).
 If release namefsfsfsdfsdfsfsfsfsdf contains chart name it will be used as a full name.
 */}}
 {{- define "service-A.fullname" -}}
