@@ -13,6 +13,7 @@ commands:
      description: "Adding helm repo"
      steps: 
        - run: |     
+          
            helm plugin install https://github.com/hayorov/helm-gcs.git
            helm plugin update gcs
           
@@ -21,6 +22,7 @@ commands:
      steps: 
        - run: |    
            helm dependency update
+           ls -la 
            helm package << pipeline.parameters.subpath >> 
       
 jobs:
