@@ -21,7 +21,7 @@ commands:
      steps: 
        - run: |    
            helm dependency update
-           helm package $CIRCLE_WORKING_DIRECTORY
+           helm package << pipeline.parameters.subpath >> 
       
 jobs:
   build:
