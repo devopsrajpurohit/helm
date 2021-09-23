@@ -8,6 +8,6 @@ workflows:
       - path-filtering/filter:
           base-revision: circleci-project-setup
           mapping: |
-            service-A/.* subPath: "service-A"
-            service-B/.* subPath: "service-B"
+            service-A/.* subPath "service-A"
+            service-B/.* subPath "service-B"
           config-path: .circleci/pipe.yml
