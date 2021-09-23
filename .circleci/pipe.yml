@@ -32,8 +32,6 @@ commands:
 jobs:
   build:
     executor: helm
-    environment:  
-      workDir: << pipeline.parameters.service-A >>
     steps:
      - checkout 
      - repo_add
